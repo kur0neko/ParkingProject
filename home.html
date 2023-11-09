@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SJSU Parking</title>
+    <link rel="stylesheet" type="text/css" href="homestyles.css">
+    <style>
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>SJSU PARKING</h1>
+    
+    <div class="navbar">
+        <a href="#about">About Us</a>
+        <a href="#feedback">Feedback</a>
+    </div>   
+
+    <div class="form-group">
+        <label for="licensePlate">License Plate:</label>
+        <input type="text" id="licensePlate" placeholder="Enter license plate">
+    </div>
+
+    <div class="parking-lot">
+        <h1>Parking Lot</h1>
+        
+        <div class="floor" id="floor1">
+            <h2>Floor 1</h2>
+            <p>Remaining Spaces: <span id="remainingSpaces1">10</span></p>
+        </div>
+        
+        <div class="floor" id="floor2">
+            <h2>Floor 2</h2>
+            <p>Remaining Spaces: <span id="remainingSpaces2">15</span></p>
+        </div>
+        
+        <div class="floor" id="floor3">
+            <h2>Floor 3</h2>
+            <p>Remaining Spaces: <span id="remainingSpaces3">8</span></p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="floorSelect">Select Floor:</label>
+        <select id="floorSelect">
+            <option value="1">1st Floor</option>
+            <option value="2">2nd Floor</option>
+            <option value="3">3rd Floor</option>
+        </select>
+    </div>
+
+    <button onclick="confirmParking()">Confirm Parking</button>
+</div>
+
+<script src = "homepagescript.js"> </script>
+</body>
+</html>
