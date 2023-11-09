@@ -1,3 +1,4 @@
+
  function confirmParking() {
         var licensePlate = document.getElementById('licensePlate').value;
         var selectedFloor = document.getElementById('floorSelect').value;
@@ -14,4 +15,6 @@
         // Update the displayed value
         document.getElementById(`remainingSpaces${floor}`).textContent = newSpaces;
     }
+
+    
     
