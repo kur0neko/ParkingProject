@@ -22,7 +22,7 @@ body{
     display: block;
     color: #f2f2f2;
     text-align: center;
-    padding: 14px 16px;
+    padding: 17px 18px;
     text-decoration: none;
 }
 
@@ -34,8 +34,8 @@ body{
 
 
 .main{
-    width: 350px;
-    height: 500px;
+    width: 400px;
+    height: 650px;
     background: lightblue;
     overflow: hidden;
     background: url("ui1.jpg") no-repeat center / cover;
@@ -66,7 +66,7 @@ label{
 
 input{
     width: 60%;
-    height: 20px;
+    height: 30px;
     background: #e0dede;
     justify-content: center;
     display: flex;
@@ -79,15 +79,15 @@ input{
 
 button{
     width: 60%;
-    height: 40px;
+    height: 50px;
     margin: 10px auto;
     justify-content: center;
     display: block;
     color: #fff;
-    background: #573b8a;
+    background: #602ebe;
     font-size: 1em;
     font-weight: bold;
-    margin-top: 20px;
+    margin-top: 15px;
     outline: none;
     border: none;
     border-radius: 5px;
@@ -113,7 +113,7 @@ button:hover{
 }
 
 #chk:checked ~ .login{
-    transform: translateY(-500px);
+    transform: translateY(-650px);
 }
 
 #chk:checked ~ .login label{
