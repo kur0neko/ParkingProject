@@ -1,0 +1,67 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.center-text {
+    text-align: center;
+}
+
+h1 {
+    font-size: 24px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+.parking-status {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.floor {
+    width: 200px;
+    margin: 20px;
+    border: 1px solid #ccc;
+    padding: 20px;
+}
+
+.floor h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.floor p {
+    margin-bottom: 5px;
+}
+
+.reservation {
+    margin-top: 50px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+select {
+    width: 200px;
+    padding: 5px;
+    border: 1px solid #ccc;
+}
+
+#confirmReservation {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}

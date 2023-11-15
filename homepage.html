@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parking Availability</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="center-text">Parking Availability</h1>
+        <div class="parking-status">
+            <div class="floor">
+                <h2>Floor 1</h2>
+                <p>Occupied: 10</p>
+                <p>Empty: 5</p>
+            </div>
+            <div class="floor">
+                <h2>Floor 2</h2>
+                <p>Occupied: 15</p>
+                <p>Empty: 3</p>
+            </div>
+            <div class="floor">
+                <h2>Floor 3</h2>
+                <p>Occupied: 8</p>
+                <p>Empty: 7</p>
+            </div>
+        </div>
+        <div class="reservation">
+            <label for="floorSelect">Select Floor:</label>
+            <select id="floorSelect">
+                <option value="1">Floor 1</option>
+                <option value="2">Floor 2</option>
+                <option value="3">Floor 3</option>
+            </select>
+            <button id="confirmReservation">Confirm Reservation</button>
+        </div>
+    </div>
+</body>
+</html>
