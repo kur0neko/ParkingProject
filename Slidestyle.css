@@ -83,7 +83,7 @@ button{
     margin: 10px auto;
     justify-content: center;
     display: block;
-    color: #fff;
+    color: #ffffff;
     background: #602ebe;
     font-size: 1em;
     font-weight: bold;
@@ -103,6 +103,10 @@ button:hover{
     height: 600px;
     background: #eee;
     /* border-radius: 100%/2.5%; */
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
     transform: translateY(-180px);
     transition: .8s ease-in-out;
 }
@@ -111,6 +115,15 @@ button:hover{
     color: #573b83;
     transform: scale(.6);
 }
+
+a.shifted-anchor {
+    display: flex;
+    position: relative;
+    margin-bottom: 3px;
+    padding-right: 7cm;
+    
+   
+  }
 
 #chk:checked ~ .login{
     transform: translateY(-700px);
