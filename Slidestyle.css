@@ -10,7 +10,7 @@ body{
 
 }
 .navbar {
-    background-color: #333;
+    background-color:#574a95;
     overflow: hidden;
     position: fixed; /* Set the navbar to fixed position */
     width: 100%; /* Full width */
@@ -20,18 +20,17 @@ body{
 .navbar a {
     float: left;
     display: block;
-    color: #f2f2f2;
+    color: #fff8E8;
     text-align: center;
     padding: 17px 18px;
     text-decoration: none;
+    
 }
 
 .navbar a:hover {
     background-color: #ddd;
     color: black;
 }
-
-
 
 .main{
     width: 400px;
@@ -99,9 +98,10 @@ button:hover{
     background: #6d42b8;
 }
 
+
 .login{
     height: 600px;
-    background: #eee;
+    background: #fff8E8;
     /* border-radius: 100%/2.5%; */
     border-top-right-radius: 20px;
     border-top-left-radius: 20px;
@@ -111,19 +111,20 @@ button:hover{
     transition: .8s ease-in-out;
 }
 
+.login a{
+    align-items: center;
+    position: relative;
+    padding: 13px 19px;
+    justify-content: center;
+    display: flex;
+
+}
+
 .login label{
-    color: #573b83;
+    color: #481e8c;
     transform: scale(.6);
 }
 
-a.shifted-anchor {
-    display: flex;
-    position: relative;
-    margin-bottom: 3px;
-    padding-right: 7cm;
-    
-   
-  }
 
 #chk:checked ~ .login{
     transform: translateY(-700px);
