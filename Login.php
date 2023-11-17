@@ -18,6 +18,7 @@
         <input type="checkbox" id="chk" aria-hidden="true">
 
         <div  class="signup">
+    
             <form>
                 <label for ="chk" aria-hidden="true">Sign up</label>
                 <input type="text" name="txt" placeholder="First name" required="">
@@ -35,6 +36,35 @@
                 <input type="Password" name="pswd" placeholder="Password" required="">
                 <a id="auth-fpp-link-bottom" class="shifted-anchor" href="">Forgot password?</a>
                 <button>Login</button>  
+
+                <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+    $dbhost = "localhost";
+    $dbuser = "root";
+    $dbpass = "";
+    $dbname = "SJSUGARAGE";
+    $conn = new mysqli($dbhost, $dbuser, $dbpass,$dbname) or die("Connect failed: %s\n". $conn -> error);
+    $sql = "SELECT * FROM customers";
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) 
+    {
+  // output data of each row
+  while($row = $result->fetch_assoc()) {
+    echo $row['fname'];
+  }
+} else {
+  echo "0 results";
+}
+
+
+
+
+?>
+
+
             </form>
         </div>
     </head>
+    </html>
