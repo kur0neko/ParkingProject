@@ -38,6 +38,7 @@
                 <button>Login</button>  
 
                 <?php
+
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -46,15 +47,16 @@ error_reporting(E_ALL);
     $dbpass = "";
     $dbname = "SJSUGARAGE";
     $conn = new mysqli($dbhost, $dbuser, $dbpass,$dbname) or die("Connect failed: %s\n". $conn -> error);
-    $sql = "SELECT * FROM customers";
+    $sql = "SELECT * FROM Customer";
     $result = $conn->query($sql);
-    if ($result->num_rows > 0) 
+    if ($result->num_rows) 
     {
   // output data of each row
   while($row = $result->fetch_assoc()) {
     echo $row['fname'];
   }
-} else {
+} 
+else {
   echo "0 results";
 }
 
