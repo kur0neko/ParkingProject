@@ -6,14 +6,19 @@
     <link rel="stylesheet" type="text/css" href="css/Slidestyle.css?v=<?php echo time();?>"/>
 </head>
 <body>
-    <div class="navbar">
-        <h1>WELCOME TO SJSU GARAGE</h2>
-        <a href="#about">About Us</a>
-        <a href="#feedback">Feedback</a>
-
-    </div>   
-    
-    <div class="main">
+<header class="main">
+        <nav>
+            <a href="index.php" class="logo">
+                <img src="images/logoCat.png">
+            </a>
+            <ul class="menu">
+                <li><a href="index.php" >Home</a></li>
+                <li><a href="Login.php" class="active">Login</a></li>
+                <li><a href="#">Reservation</a></li>
+                <li><a href="#">Payment</a></li>
+            </ul>
+        </nav>
+    <div class="themain">
         <input type="checkbox" id="chk" aria-hidden="true">
 
         <div  class="signup">
