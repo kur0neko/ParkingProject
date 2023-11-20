@@ -33,61 +33,37 @@
 
             <div class="feature-box">
                 <div class="f-img">
-                    <img src="images/info-icon1.png"/>
+                    <img src="images/parkingicon.png"/>
                 </div>
                 <div class="f-text">
-                    <h4>Web Development</h4>
-                    <p>Lorem ipsum dolor sit amet.</p>
+                    <h4>Floor:1 Remaining </h4>
+                    <p>Here is remaining parking spot</p>
                     <a href="#" class="main-btn">Check</a>
                 </div>
             </div>
 
             <div class="feature-box">
                 <div class="f-img">
-                    <img src="images/info-icon2.png"/>
+                    <img src="images/parkingicon.png"/>
                 </div>
                 <div class="f-text">
-                    <h4>Software Development</h4>
-                    <p>Lorem ipsum dolor sit amet.</p>
+                    <h4>Floor:2 Remaining </h4>
+                    <p>Here is remaining parking spot</p>
                     <a href="#" class="main-btn">Check</a>
                 </div>
             </div>
 
             <div class="feature-box">
                 <div class="f-img">
-                    <img src="images/info-icon3.png"/>
+                    <img src="images/parkingicon.png"/>
                 </div>
                 <div class="f-text">
-                    <h4>App Development</h4>
-                    <p>Lorem ipsum dolor sit amet.</p>
+                    <h4>Floor:3 Remaning</h4>
+                    <p>Here is remaining parking spot</p>
                     <a href="#" class="main-btn">Check</a>
                 </div>
             </div>
         </div>
     </section>
-
-    <section class="about">
-        <div class="about-img">
-            <img src="images/about.png">
-        </div>
-        <div class="about-text">
-            <h2>Start Tracking Your Statistics</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad cumque eum quia magni, voluptatibus nesciunt vero. Reprehenderit fugiat soluta ullam praesentium, omnis autem voluptatibus quae.</p>
-            <button class="main-btn">Read More</button>
-        </div>
-    </section>
-
-    <footer class="contact">
-        <div class="contact-heading">
-            <h1>Contact Us</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-        </div>
-        <form action="userinformation.php" method="post">
-            <input type="text" name="user" placeholder="Your Full Name"/>
-            <input type="email" name="email" placeholder="Your E-Mail"/>
-            <textarea name="message" placeholder="Type Your Message Here.........."></textarea>
-            <button class="main-btn contact-btn" type="submit">Continue</button>
-        </form>
-    </footer>
 </body>
 </html>
