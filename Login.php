@@ -3,12 +3,11 @@
 <head>
     <title>SJSU Garage</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="Slidestyle.css">
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/Slidestyle.css?v=<?php echo time();?>"/>
 </head>
 <body>
     <div class="navbar">
-        <h2>WELCOME TO SJSU GARAGE</h2>
+        <h1>WELCOME TO SJSU GARAGE</h2>
         <a href="#about">About Us</a>
         <a href="#feedback">Feedback</a>
 
@@ -25,7 +24,7 @@
                 <input type="email" name="email" placeholder="Email" required="">
                 <input type= "Password" name="pswd" placeholder="Password" required="">
                 <button> Sign up</button>
-                
+            
             </form>
         </div>
         <div class="login">
@@ -38,3 +37,5 @@
             </form>
         </div>
     </head>
+</body>
+</html>
