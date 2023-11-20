@@ -3,22 +3,18 @@
 <head>
     <title>SJSU Garage</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/Slidestyle.css?v=<?php echo time();?>"/>
+    <link rel="stylesheet" type="text/css" href="Slidestyle.css">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
-<header class="main">
-        <nav>
-            <a href="index.php" class="logo">
-                <img src="images/logoCat.png">
-            </a>
-            <ul class="menu">
-                <li><a href="index.php">Home</a></li>
-                <li><a href="Login.php" class="active">Login</a></li>
-                <li><a href="#">Reservation</a></li>
-                <li><a href="#">Payment</a></li>
-            </ul>
-        </nav>
-    <div class="themain">
+    <div class="navbar">
+        <h2>WELCOME TO SJSU GARAGE</h2>
+        <a href="#about">About Us</a>
+        <a href="#feedback">Feedback</a>
+
+    </div>   
+    
+    <div class="main">
         <input type="checkbox" id="chk" aria-hidden="true">
 
         <div  class="signup">
@@ -29,7 +25,7 @@
                 <input type="email" name="email" placeholder="Email" required="">
                 <input type= "Password" name="pswd" placeholder="Password" required="">
                 <button> Sign up</button>
-            
+                
             </form>
         </div>
         <div class="login">
@@ -42,5 +38,3 @@
             </form>
         </div>
     </head>
-</body>
-</html>
