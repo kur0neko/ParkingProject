@@ -50,6 +50,15 @@ CREATE TABLE `Customer` (
   `vehicleLicenseID` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+CREATE TABLE invoices (
+    invoice_id INT PRIMARY KEY AUTO_INCREMENT,
+    customer_name VARCHAR(255) NOT NULL,
+    invoice_date DATE NOT NULL,
+    total_amount DECIMAL(10, 2) NOT NULL,
+    payment_status ENUM('Paid', 'Pending', 'Overdue') DEFAULT 'Pending'
+);
+
+
 --
 -- Dumping data for table `Customer`
 --
