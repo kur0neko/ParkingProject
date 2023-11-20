@@ -14,8 +14,8 @@
             <ul class="menu">
                 <li><a href="index.php" >Home</a></li>
                 <li><a href="Login.php" class="active">Login</a></li>
-                <li><a href="#">Reservation</a></li>
-                <li><a href="#">Payment</a></li>
+                <li><a href="About.php" >About</a></li>
+                <li><a href="Contact.php">Contact</a></li>
             </ul>
         </nav>
     <div class="themain">
