@@ -34,55 +34,34 @@
 							}
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Account</title>
-<link rel="stylesheet" type="text/css" href="css/main.css?v=<?php echo time();?>"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Garage</title>
+    <link rel="stylesheet" href="css/anotherStyle.css?v=<?php echo time();?>"/>
 </head>
 <body>
-	<div id="wrapper">
-		<header id="header">
-		<a href="index.php" class="logo">
-                <img src="images/logoCat.png"></a>
-				<nav class="links">
-					<ul>
-						<li><p>Welcome to Best Garage!</p></li>
-						<li><a href="reservation.php">Make a reservation</a></li>
-						<li><a href="index.php">Log out</a></li>
-					</ul>
-				</nav>
-				<nav class="main">
-					<ul>
-						<li class="search">
-								<a class="fa-search" href="#search">Search</a>
-								<form id="search" method="get" action="#">
-								<input type="text" name="query" placeholder="Search" />
-							</form>
-						</li>
-						<li class="menu">
-							<a class="fa-bars" href="#menu">Menu</a>
-						</li>
-					</ul>
-				</nav>
-		</header>
+    <header class="main">
+        <nav>
+            <a href="index.php" class="logo">
+                <img src="images/logoCat.png">
+            </a>
 
-		<!-- Menu -->
-		<section id="menu">
-			<section>
-				<ul class="links">
-					<li>
-						<a href="reservation.php"><h3>Make a reservation</h3></a>
-						<a href="index.php"><h3>Log out</h3></a>
-					</li>
-			</section>
-		</section>
-
-		<!-- Main -->
-		<div id="main">
-			<article class="post">
-				<p>
-					<h2>My Reservations</h2>
-					<form action="action_page.php" method="post" accept-charset="UTF-8">
+            <ul class="menu">
+                <li><a href="index.php" >Log out</a></li>
+                <li><a href="Login.php"class="active" >Login</a></li>
+                <li><a href="about.php">About</a></li>
+                <li><a href="contact.php" >Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="features">
+        <div class="feature-container">
+            <div class="feature-box">
+            <h1 style="text-align: center;">My Account</h2>
+            <h2 style="text-align: center;">My Reservation</h2>
+            <form action="action_page.php" method="post" accept-charset="UTF-8">
             <a>Current occupancies</a><br><br>
 						<a>My Reservations</a><br>
 							<?php
@@ -90,7 +69,7 @@
   							$result = getSingleValue('accounts','username',$user,'Reservation',$connection);
                             $spotNum = getSingleValue('reservations','username', $user, 'spotNumber', $connection);
   	            echo "Reservation time: $result<br><br>";
-                echo "Spot Number: $spotNum<br><br>";
+                echo "Parking Number: $spotNum<br><br>";
 	            ?>
 						<!--<p>Time Remaining</p><br>-->
 						<!-- clock -->
@@ -114,21 +93,10 @@
 						Current time:
 						<div id="time"></div>
                         <br>
-					<a href="reservation.php">Make a reservation</a><p>
-					</form>
-				</p>
-			</article>
-		</div>
-
-		<section id="sidebar">
-			<section id="intro">
-				<header>
-					<h2>My Account</h2>
-                </header>
-			</section>
-			<div>
-				<p>
-					<h2>My Info</h2>
+                        <button onclick="confirmParking()">Confirm Parking</button>
+                        <li><a href="reservation.php" >Make A Reservation</a></li>
+			            <li><a href="index.php" >Log out</a></li>
+                        <h2>My Account Info</h2>
                         <?php
                         //store the username in a variable for use in SQL commands
                         //Store the username for the session in a variable for use in SQL commands
@@ -150,15 +118,12 @@
                         //print license plate of car
                          $result = getSingleValue('accounts','username',$user,'LicensePlate',$connection);
                         echo "License Plate: $result<br>";
-
                         //close connection
                         //$connection->close();
-                    ?>
-                    <br>
-					<a href="editinfo.html">Edit Info</a><p>
-					</form>
-				</p>
-			</div>
+                    ?> <br>
+			</div>				
+        </div>
+    </div>
 		</section>
 	</div>
 			<script src="assets/js/jquery.min.js"></script>

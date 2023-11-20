@@ -22,25 +22,24 @@
         <input type="checkbox" id="chk" aria-hidden="true">
 
         <div  class="signup">
-            <form>
+                <form action="action_page.php" method="post" accept-charset="UTF-8">
                 <label for ="chk" aria-hidden="true">Sign up</label>
-                <input type="text" name="txt" placeholder="First name" required="">
-                <input type="text" name="txt" placeholder="Last name" required="">
                 <input type="email" name="email" placeholder="Email" required="">
-                <input type= "Password" name="pswd" placeholder="Password" required="">
-                <button> Sign up</button>
-            
+                <input type="username" name="usernam" placeholder="username" required="">
+                <input type= "password" name="password" placeholder="Password" required="">
+                <input type= "password" name="confirm" placeholder="Confirm Password" required="">
+                <input type="submit" value="Submit"><br>
             </form>
         </div>
         <div class="login">
-            <form>
+                <form action="loginScript.php" method="post" acept-charset="UTF-8">
                 <label for="chk" aria-hidden="true">Login</label>
-                <input type="email" name="email" placeholder="Email" required="">
-                <input type="Password" name="pswd" placeholder="Password" required="">
+                <input type="username" name="username" placeholder="username">
+                <input type="password" name="password" placeholder="password">
                 <a id="auth-fpp-link-bottom" class="shifted-anchor" href="">Forgot password?</a>
-                <button>Login</button>  
+                <input type="submit" value="submit" name="submit"/><br> 
             </form>
         </div>
-    </head>
+    </head>ßß
 </body>
 </html>
