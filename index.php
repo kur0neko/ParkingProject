@@ -23,7 +23,7 @@
         </nav>
         <div class="main-heading">
             <h1>Where Automation Meets Convenience, Your Spot in the Future of Parking!</h1>
-            <p>SJSU garage integrated with technology to solve student commuting problems</p>
+            <p>Best garage integrated with technology to solve student commuting problems</p>
             <a class="main-btn" href="login.php">Begin Journey!</a>
         </div>
     </header>

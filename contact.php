@@ -25,7 +25,7 @@
     <section class="contact">
         <div class="contact-heading">
             <h1>Contact Us</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <p></p>
         </div>
         <form action="userinformation.php" method="post">
             <input type="text" name="user" placeholder="Your Full Name"/>
