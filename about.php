@@ -20,7 +20,7 @@
             </ul>
         </nav>
         <div class="main-heading">
-            <h1>Where Automation Meets Convenience, Your Spot in the Future of Parking!</h1>
+            <h1>Where Automation solve your daily life of parking!, Your Spot in the Future of Parking!</h1>
             <p>SJSU garage integrated with technology to solve student commuting problems</p>
         </div>
     </header>
