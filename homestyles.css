@@ -1,4 +1,4 @@
-/*
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f0f0f0;
@@ -11,7 +11,7 @@ body {
     background: linear-gradient(to bottom, #0f0c29,#302b63,#24243e);
 }
 
-/*.navbar {
+.navbar {
     background-color: #333;
     overflow: hidden;
     position: fixed; 
@@ -32,8 +32,7 @@ body {
     background-color: #ddd;
     color: black;
 }
-*/
-/*
+
 .parking-lot {
     text-align: center;
     background-color: #fff;
@@ -101,13 +100,14 @@ button {
 button:hover {
     background-color: #45a049;
 }
-*/
+
+/*
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f0f0f0;
     margin: 0;
     padding: 0;
-    height: 100vh; /* Ensure the body covers the entire viewport height */
+    height: 100vh; /* Ensure the body covers the entire viewport height 
     background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
 }
 
@@ -178,3 +178,6 @@ button {
 button:hover {
     background-color: #45a049;
 }
+*/
+
+
