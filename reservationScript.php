@@ -16,8 +16,8 @@ session_start();
 		echo 'ERROR: '. $e->getMessage();
 	}
 	if(isset($_POST["submit"])){
-		//Find available reservation spot and create if available, return error if unavailable
-		//We want all reservations where startime is between in and out AND/OR endtime is between in and out
+		
+		
 		$findSlot = $databaseConnection->prepare('INSERT INTO unavTab SELECT * FROM reservations WHERE (startTime BETWEEN :inTime AND :out) OR (endTime between :inTime AND :out) OR ((startTime < :inTime) AND (endTime > :inTime))');
 		$findSlot->bindParam(':inTime',$_POST['startTime']);
 		$findSlot->bindParam(':out',$_POST['endTime']); 

@@ -1,4 +1,4 @@
-
+--CMPE138_TEAM1_
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ CREATE TABLE `accounts` (
   `isAdmin` int(11) NOT NULL DEFAULT '0',
   `id` int(10) NOT NULL,
   `Username` char(20) NOT NULL,
-  `Password` char(20) NOT NULL,
+  `Password` varchar(255) NOT NULL,
   `Balance` float NOT NULL DEFAULT '0',
   `Reservation` datetime DEFAULT NULL,
   `LicensePlate` char(7) NOT NULL,
@@ -29,6 +29,9 @@ INSERT INTO `accounts` (`isAdmin`, `id`, `Username`, `Password`, `Balance`, `Res
 (1, 0, 'admin', 'password', 0, NULL, '', '0000-00-00 00:00:00', NULL, 0),
 (0, 1, 'username', 'password', 100, '2016-04-29 14:02:00', '1234567', '2016-04-29 09:00:00', '2016-04-29 11:00:00', 10),
 (0, 2, 'richUser', 'password', 9999900, '0000-00-00 00:00:00', '2345678', '2016-04-29 00:00:00', '2016-04-29 13:01:00', 0);
+(0, 3, 'm3wiiz', 'Mewmulberry12', 200, '2016-04-29 14:02:00', 'h6utrt2', '2016-04-29 09:00:00', '2016-04-29 11:00:00', 5),
+(0, 4, 'nathan', 'Momotaro', 00, '2018-04-29 14:02:00', 'i335rt8', '2016-04-29 09:00:00', '2016-04-29 11:00:00', 10),
+(0, 5, 'Roman', '$FSkoforr', 9999900, '0000-00-00 00:00:00', 't33f324', '2016-04-29 00:00:00', '2016-04-29 13:01:00', 0);
 
 
 CREATE TABLE `parkingspaces` (
@@ -77,7 +80,6 @@ CREATE TABLE `vehicle` (
     `LicensePlateID` char(7) NOT NULL,
     `Color` VARCHAR(10),  
     `Type` ENUM('Sedan', 'Coupe', 'Truck', 'MiniVan', 'SUV', 'Other') DEFAULT 'Other',
-    `OwnerID` int(10),  
     primary key (vehicleID)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
