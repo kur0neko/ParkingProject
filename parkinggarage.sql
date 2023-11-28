@@ -3,12 +3,7 @@
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
+DROP DATABASE parkinggarage;
 
 CREATE DATABASE parkinggarage;
 
@@ -17,7 +12,7 @@ USE parkinggarage;
 
 CREATE TABLE `accounts` (
   `isAdmin` int(11) NOT NULL DEFAULT '0',
-  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `id` int(10) NOT NULL,
   `Username` char(20) NOT NULL,
   `Password` char(20) NOT NULL,
   `Balance` float NOT NULL DEFAULT '0',
@@ -25,7 +20,8 @@ CREATE TABLE `accounts` (
   `LicensePlate` char(7) NOT NULL,
   `startTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `endTime` datetime DEFAULT NULL,
-  `paymentneeded` float NOT NULL DEFAULT '0'
+  `paymentneeded` float NOT NULL DEFAULT '0',
+   PRIMARY KEY(LicensePlate)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
@@ -41,7 +37,8 @@ CREATE TABLE `parkingspaces` (
   `Username` char(20) DEFAULT NULL,
   `LicensePlate` int(11) NOT NULL,
   `StartTime` datetime DEFAULT NULL,
-  `Price` decimal(10,0) DEFAULT NULL
+  `Price` decimal(10,0) DEFAULT NULL,
+  PRIMARY KEY (SpotNumber)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
@@ -63,25 +60,26 @@ CREATE TABLE `reservations` (
   `startTime` datetime NOT NULL,
   `endTime` datetime NOT NULL,
   `spotNumber` int(11) NOT NULL DEFAULT '0',
-  `username` text NOT NULL
+  `username` text NOT NULL,
+   PRIMARY KEY (spotNumber)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
 CREATE TABLE `invoice`(
-  `InvoiceID` int(10) NOT NULL AUTO_INCREMENT,
+ `InvoiceID` int(10) NOT NULL ,
  `LicensePlateID` char(7) NOT NULL,
- `Balance` float NOT NULL DEFAULT '0',
+ `ParkingID` int(11) NOT NULL,
+ PRIMARY KEY (InvoiceID)
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-
-)
-
-CREATE TABLE `vehicle`(
+CREATE TABLE `vehicle` (
+	`vehicleID` int,
     `LicensePlateID` char(7) NOT NULL,
-    `Color` char(15),
-    `type` enum('Sedan', 'Coupe', 'Truck','MiniVan','SUV','Other') DEFAULT 'Other',
-
-)
-
+    `Color` VARCHAR(10),  
+    `Type` ENUM('Sedan', 'Coupe', 'Truck', 'MiniVan', 'SUV', 'Other') DEFAULT 'Other',
+    `OwnerID` int(10),  
+    primary key (vehicleID)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `unavtab` (
   `startTime` datetime NOT NULL,
@@ -90,23 +88,12 @@ CREATE TABLE `unavtab` (
   `username` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-
-
 ALTER TABLE `vehicle`
  ADD CONSTRAINT `FKvehicle_owner` FOREIGN KEY (`LicensePlateID`) REFERENCES `accounts` (`LicensePlate`);
 
 ALTER TABLE `invoice`
  ADD CONSTRAINT `Fkinvoice_owner` FOREIGN KEY (`LicensePlateID`) REFERENCES `accounts` (`LicensePlate`);
 
-ALTER TABLE `accounts`
-  ADD PRIMARY KEY (`LicensePlate`);
+ ALTER TABLE `invoice`
+ ADD CONSTRAINT `FkParkingLocation` FOREIGN KEY (`ParkingID`) REFERENCES `parkingspaces` (`SpotNumber`);
 
-ALTER TABLE `parkingspaces`
-  ADD PRIMARY KEY (`SpotNumber`);
-
-ALTER TABLE `reservations`
-  ADD PRIMARY KEY (`spotNumber`);
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
