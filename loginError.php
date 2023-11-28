@@ -1,4 +1,4 @@
-
+<!--CMPE138_TEAM#1_SOURCES -->
 <?php
 	include('loginScript.php');
 ?>
@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>SJSU Garage</title>
+    <title>Great Garage</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/Slidestyle.css?v=<?php echo time();?>"/>
 </head>

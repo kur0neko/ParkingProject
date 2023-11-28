@@ -1,11 +1,10 @@
-
-
+/* CMPE138_TEAM#1_SOURCES */
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
-CREATE DATABASE greatGarage.sql;
+CREATE DATABASE greatGarage;
 
-USE greatGarage.sql;
+USE greatGarage;
 
 
 CREATE TABLE `accounts` (
@@ -24,9 +23,10 @@ CREATE TABLE `accounts` (
 
 
 INSERT INTO `accounts` (`isAdmin`, `id`, `Username`, `Password`, `Balance`, `Reservation`, `LicensePlate`, `startTime`, `endTime`, `paymentneeded`) VALUES
-(0, 3, 'm3wiiz', 'Mewmulberry12', 200, '2016-04-29 14:02:00', 'h6utrt2', '2016-04-29 09:00:00', '2016-04-29 11:00:00', 5),
-(0, 4, 'nathan', 'Momotaro', 00, '2018-04-29 14:02:00', 'i335rt8', '2016-04-29 09:00:00', '2016-04-29 11:00:00', 10),
-(0, 5, 'Roman', '$FSkoforr', 9999900, '0000-00-00 00:00:00', 't33f324', '2016-04-29 00:00:00', '2016-04-29 13:01:00', 0);
+(1, 0, 'admin', 'password', 0, NULL, '1234g67', '0000-00-00 00:00:00', '', 0),
+(0, 1, 'username', 'password', 100, '0000-00-00 00:00:00', '1234567', '2016-04-29 09:00:00', '2016-04-29 11:00:00', 10),
+(0, 2, 'username2', 'password', 9999900, '0000-00-00 00:00:00', '', '2016-04-29 00:00:00', '2016-04-29 13:01:00', 0),
+(1, 0, 'admin2', 'password', 0, NULL, '24rkot', '0000-00-00 00:00:00', '', 0);
 
 
 CREATE TABLE `parkingspaces` (
