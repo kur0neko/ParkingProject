@@ -1,13 +1,13 @@
 <?php
                         session_start();
 
-                    	//DB configuration Constants
+                    	//DB config
                     	define('_HOST_NAME_', 'localhost');
                     	define('_USER_NAME_', 'root');
                     	define('_DB_PASSWORD', '');
-                    	define('_DATABASE_NAME_', 'parkinggarage');
+                    	define('_DATABASE_NAME_', 'greatGarage.sql');
 
-                    	//PDO Database Connection
+                    	//PDO DB connection
                     	try {
                     		$databaseConnection = new PDO('mysql:host='._HOST_NAME_.';dbname='._DATABASE_NAME_, _USER_NAME_, _DB_PASSWORD);
                     		$databaseConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -15,7 +15,7 @@
                     		echo 'ERROR: ' . $e->getMessage();
                     	}
 
-                        //connect to SQL host
+                       //throw exception connect to host
                         try {
                             $connection = new PDO('mysql:host='._HOST_NAME_.';dbname='._DATABASE_NAME_, _USER_NAME_, _DB_PASSWORD);
                             $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -92,8 +92,7 @@
   	            echo "Reservation time: $result<br><br>";
                 echo "Spot Number: $spotNum<br><br>";
 	            ?>
-						<!--<p>Time Remaining</p><br>-->
-						<!-- clock -->
+						
 						<script>
 						function startTime() {
 						    var today = new Date();
@@ -130,29 +129,20 @@
 				<p>
 					<h2>My Info</h2>
                         <?php
-                        //store the username in a variable for use in SQL commands
-                        //Store the username for the session in a variable for use in SQL commands
+                        
                         $user = htmlspecialchars($_SESSION['username']);
 
-                        //print username and password
                         echo "Username: $user <br>";
                         echo "Password: ****** <br>";
 
-                        //send SQL queries to the database and print the result
-                        //print the balance
                         $result = getSingleValue('accounts','username',$user,'Balance',$connection);
                         echo "Balance: $result<br>";
 
-                        //print any reservations
                          $result = getSingleValue('accounts','username',$user,'Reservation',$connection);
                         echo "Reservations: $result<br>";
 
-                        //print license plate of car
                          $result = getSingleValue('accounts','username',$user,'LicensePlate',$connection);
                         echo "License Plate: $result<br>";
-
-                        //close connection
-                        //$connection->close();
                     ?>
                     <br>
 					<a href="editinfo.html">Edit Info</a><p>

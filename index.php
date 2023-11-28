@@ -58,9 +58,9 @@
                     <img src="images/parkingicon.png"/>
                 </div>
                 <div class="f-text">
-                    <h4>Floor:3 Remaning</h4>
+                    <h4>Floor:3 Remaining </h4>
                     <p>Here is remaining parking spot</p>
-
+                    <a href="#" class="main-btn">Check</a>
                 </div>
             </div>
         </div>

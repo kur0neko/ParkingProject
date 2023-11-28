@@ -71,8 +71,6 @@
   	            echo "Reservation time: $result<br><br>";
                 echo "Parking Number: $spotNum<br><br>";
 	            ?>
-						<!--<p>Time Remaining</p><br>-->
-						<!-- clock -->
 						<script>
 						function startTime() {
 						    var today = new Date();

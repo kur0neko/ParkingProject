@@ -22,7 +22,7 @@
         <input type="checkbox" id="chk" aria-hidden="true">
 
         <div  class="signup">
-                <form action="action_page.php" method="post" accept-charset="UTF-8">
+                <form action="signup.php" method="post" accept-charset="UTF-8">
                 <label for ="chk" aria-hidden="true">Sign up</label>
                 <input type="email" name="email" placeholder="Email" required="">
                 <input type="username" name="usernam" placeholder="username" required="">
