@@ -14,7 +14,7 @@
 
 
 **Project Collaborators**
-- Nutthawat Panyangnoi
+- Nutthawat Panyangnoi (kur0neko)
 - Divak Maheshwari
 
 ----
