@@ -1,4 +1,5 @@
 
+ //<!--CMPE138_TEAM#1_SOURCES -->
  function confirmParking() {
         var licensePlate = document.getElementById('licensePlate').value;
         var selectedFloor = document.getElementById('floorSelect').value;

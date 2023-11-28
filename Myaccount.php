@@ -5,7 +5,7 @@
                     	define('_HOST_NAME_', 'localhost');
                     	define('_USER_NAME_', 'root');
                     	define('_DB_PASSWORD', '');
-                    	define('_DATABASE_NAME_', 'parkinggarage.sql');
+                    	define('_DATABASE_NAME_','parkinggarage.sql');
 
                     	//PDO DB connection
                     	try {
