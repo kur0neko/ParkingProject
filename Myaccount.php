@@ -1,15 +1,15 @@
 <?php
                         session_start();
 
-                    	//DB config
-                    	define('_HOST_NAME_', 'localhost');
-                    	define('_USER_NAME_', 'root');
-                    	define('_DB_PASSWORD', '');
-                    	define('_DATABASE_NAME_','parkinggarage.sql');
+        
+                    	define('DBHostname', 'localhost');
+                    	define('DBuserNmae', 'root');
+                    	define('DBpassword', '');
+                    	define('DBname','parkinggarage.sql');
 
-                    	//PDO DB connection
+
                     	try {
-                    		$databaseConnection = new PDO('mysql:host='._HOST_NAME_.';dbname='._DATABASE_NAME_, _USER_NAME_, _DB_PASSWORD);
+                    		$databaseConnection = new PDO('mysql:host='.DBHostname.';dbname='.DBname, DBuserNmae, DBpassword);
                     		$databaseConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                     	} catch(PDOException $e) {
                     		echo 'ERROR: ' . $e->getMessage();

@@ -1,33 +1,33 @@
 <!--CMPE138_TEAM#1_SOURCES -->
 <?php
                         session_start();
-                    	define('_HOST_NAME_', 'localhost');
-                    	define('_USER_NAME_', 'root');
-                    	define('_DB_PASSWORD', '');
-                    	define('_DATABASE_NAME_', 'parkinggarage.sql');
+                    	define('DBHostname', 'localhost');
+                    	define('DBusername', 'root');
+                    	define('DBpassword', '');
+                    	define('DBname', 'parkinggarage.sql');
 
                     	try {
-                    		$databaseConnection = new PDO('mysql:host='._HOST_NAME_.';dbname='._DATABASE_NAME_, _USER_NAME_, _DB_PASSWORD);
+                    		$databaseConnection = new PDO('mysql:host='.DBHostname.';dbname='.DBname, DBusername, DBpassword);
                     		$databaseConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                    	} catch(PDOException $e) {
-                    		echo 'ERROR: ' . $e->getMessage();
+                    	} catch(PDOException $errMsg) {
+                    		echo 'ERROR: ' . $errMsg->getMessage();
                     	}
 
-                        //throw exception to test the DATABASE
+               
                         try {
                             $connection = new PDO('mysql:host='._HOST_NAME_.';dbname='._DATABASE_NAME_, _USER_NAME_, _DB_PASSWORD);
                             $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                         }
-                        catch (PDOException $err)
+                        catch (PDOException $e)
                         {
-                            echo $err->getMessage();
+                            echo $e->getMessage();
                         }
 
                         function getSingleValue($tableName, $prop, $value, $columnName, $connection)
 							{
-							  $q = $connection->query("SELECT `$columnName` FROM `$tableName` WHERE $prop='".$value."'");
-							  $f = $q->fetch();
-							  $result = $f[$columnName];
+							  $query = $connection->query("SELECT `$columnName` FROM `$tableName` WHERE $prop='".$value."'");
+							  $ffetch = $query->fetch();
+							  $result = $ffetch[$columnName];
 							  return $result;
 							}
 ?>

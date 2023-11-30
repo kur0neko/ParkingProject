@@ -1,32 +1,32 @@
 <!--CMPE138_TEAM#1_SOURCES -->
 <?php
 	session_start();
-	define('_HOST_NAME_', 'localhost');
-	define('_USER_NAME_', 'root');
-	define('_DB_PASSWORD', '');
-	define('_DATABASE_NAME_', 'parkinggarage.sql');
+	define('dbHostNmae', 'localhost');
+	define('DBUserName', 'root');
+	define('DBpassword', '');
+	define('DBname', 'parkinggarage.sql');
 
 	try {
-		$databaseConnection = new PDO('mysql:host='._HOST_NAME_.';dbname='._DATABASE_NAME_, _USER_NAME_, _DB_PASSWORD);
+		$databaseConnection = new PDO('mysql:host='.dbHostNmae.';dbname='.DBname, DBUserName, DBpassword);
 		$databaseConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	} catch(PDOException $e) {
-		echo 'ERROR: ' . $e->getMessage();
+	} catch(PDOException $errorMSG) {
+		echo 'ERROR: ' . $errorMSG->getMessage();
 	}
 
 	if(isset($_POST["submit"])){
-		$errMsg = '';
+		$erMsg = '';
 
 		$username = trim($_POST['username']);
 		$password = trim($_POST['password']);
 
 		if($username == '')
-			$errMsg .= 'You must enter your Username<br>';
+			$erMsg .= 'You must enter your Username<br>';
 
 		if($password == '')
-			$errMsg .= 'You must enter your Password<br>';
+			$erMsg .= 'You must enter your Password<br>';
 
 
-		if($errMsg == ''){
+		if($erMsg == ''){
 			$records = $databaseConnection->prepare('SELECT username,password FROM  accounts WHERE username = :username AND password = :password');
 			$records->bindParam(':username', $username);
 			$records->bindParam(':password', $password);

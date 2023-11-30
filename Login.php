@@ -33,7 +33,7 @@
             </form>
         </div>
         <div class="login">
-                <form action="loginScript.php" method="post" acept-charset="UTF-8">
+                <form action="script.php" method="post" acept-charset="UTF-8">
                 <label for="chk" aria-hidden="true">Login</label>
                 <input type="username" name="username" placeholder="username">
                 <input type="password" name="password" placeholder="password">

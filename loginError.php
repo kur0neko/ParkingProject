@@ -27,7 +27,7 @@
         <input type="checkbox" id="chk" aria-hidden="true">
 
         <div  class="signup">
-                <form action="action_page.php" method="post" accept-charset="UTF-8">
+                <form action="signin.php" method="post" accept-charset="UTF-8">
                 <label for ="chk" aria-hidden="true">Sign up</label>
                 <input type="email" name="email" placeholder="Email" required="">
                 <input type="username" name="usernam" placeholder="username" required="">
@@ -37,7 +37,7 @@
             </form>
         </div>
         <div class="login">
-                <form action="loginScript.php" method="post" acept-charset="UTF-8">
+                <form action="script.php" method="post" acept-charset="UTF-8">
                 <label for="chk" aria-hidden="true">Login</label>
                 <input type="username" name="username" placeholder="username">
                 <input type="password" name="password" placeholder="password">
