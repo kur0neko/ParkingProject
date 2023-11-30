@@ -2,18 +2,20 @@
 
 session_start();
 
-	//DB configuration Constants
-	define('_HOST_NAME_', 'localhost');
-	define('_USER_NAME_', 'root');
-	define('_DB_PASSWORD', '');
-	define('_DATABASE_NAME_', 'parkinggarage');
+	
+	define('DBHostname', 'localhost');
+	define('DBUsername', 'root');
+	define('DBPassword', '');
+	define('DBName', 'parkinggarage');
 
-	//PDO Database Connection
-	try {
-		$databaseConnection = new PDO('mysql:host='._HOST_NAME_.';dbname='._DATABASE_NAME_, _USER_NAME_, _DB_PASSWORD);
+
+	try {//threw exception connection
+
+		$databaseConnection = new PDO('mysql:host='.DBHostname.';dbname='.DBName, DBUsername, DBPassword);
 		$databaseConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	} catch(PDOException $e) {
-		echo 'ERROR: '. $e->getMessage();
+
+	} catch(PDOException $errorMsg) { //catch the error message
+		echo 'ERROR: '. $errorMsg->getMessage();
 	}
 	if(isset($_POST["submit"])){
 		
@@ -24,12 +26,14 @@ session_start();
 		$findSlot->execute();
 
 		$avTab = $databaseConnection->prepare('SELECT SpotNumber FROM parkingspaces WHERE NOT EXISTS (SELECT SpotNum FROM unavTab
+
 			WHERE parkingspaces.SpotNumber = unavTab.SpotNum)');
+			
 		$avTab->execute();
 		$goodSpotArray = $avTab->fetch(PDO::FETCH_ASSOC);
 		$goodSpot = $goodSpotArray['SpotNumber'];
 		
-		//Input the FROM time to the SQL database
+
 		if($goodSpotArray == NULL){
 			header('Location: reservationError.php');
 			$clear = $databaseConnection->prepare('TRUNCATE TABLE unavTab');
@@ -38,25 +42,28 @@ session_start();
 		}
 		else{
 		$user = $_SESSION['username'];
-		$writeTime = $databaseConnection->prepare("UPDATE accounts SET Reservation = :fromTime WHERE Username = :username");
-		$writeTime->bindParam(':fromTime', $_POST["startTime"]);
-		$writeTime->bindParam(':username', $user);
-		$writeTime->execute();
+
+		$wrTime = $databaseConnection->prepare("UPDATE accounts SET Reservation = :fromTime WHERE Username = :username");
+
+		$wrTime->bindParam(':fromTime', $_POST["startTime"]);
+
+		$wrTime->bindParam(':username', $user);
+		$wrTime->execute();
 
 
-		$writeTime = $databaseConnection->prepare('INSERT INTO reservations (startTime,endTime, SpotNumber, username)
+		$wrTime = $databaseConnection->prepare('INSERT INTO reservations (startTime,endTime, SpotNumber, username)
 			VALUES (:startTime, :endTime, :SpotNumber, :username)');
-		$writeTime->bindParam(':startTime', $_POST['startTime']);
-		$writeTime->bindParam(':endTime', $_POST['endTime']);
-		$writeTime->bindParam(':SpotNumber', $goodSpot);
-		$writeTime->bindParam(':username', $user);
-		//echo ($goodSpot);
-		$writeTime->execute();
-		// echo "print something";*/
+		$wrTime->bindParam(':startTime', $_POST['startTime']);
+		$wrTime->bindParam(':endTime', $_POST['endTime']);
+		$wrTime->bindParam(':SpotNumber', $goodSpot);
+		$wrTime->bindParam(':username', $user);
+]
+		$wrTime->execute();
+	
 		$clear = $databaseConnection->prepare('TRUNCATE TABLE unavTab');
 		$clear->execute();
 
-		header("Location: account.php");
+		header("Location: Theaccount.php");
 		}
 	}
 ?>

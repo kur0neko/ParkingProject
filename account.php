@@ -1,34 +1,35 @@
 <?php
                         session_start();
 
-                    	//DB configuration Constants
-                    	define('_HOST_NAME_', 'localhost');
-                    	define('_USER_NAME_', 'root');
-                    	define('_DB_PASSWORD', '');
-                    	define('_DATABASE_NAME_', 'parkinggarage');
+              
+                    	define('Host_name', 'localhost');
+                    	define('user_name', 'root');
+                    	define('pass_word', '');
+                    	define('db_Name', 'parkinggarage');
 
-                    	//PDO Database Connection
+        
                     	try {
-                    		$databaseConnection = new PDO('mysql:host='._HOST_NAME_.';dbname='._DATABASE_NAME_, _USER_NAME_, _DB_PASSWORD);
+                    		$databaseConnection = new PDO('mysql:host='.Host_name.';dbname='.db_Name, user_name, pass_word);
+
                     		$databaseConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                    	} catch(PDOException $e) {
-                    		echo 'ERROR: ' . $e->getMessage();
+                    	} catch(PDOException $erorMsg) {
+                    		echo 'ERROR: ' . $erorMsg->getMessage();
                     	}
 
-                        //connect to SQL host
-                        try {
+                        try { //try threw exception
                             $connection = new PDO('mysql:host='._HOST_NAME_.';dbname='._DATABASE_NAME_, _USER_NAME_, _DB_PASSWORD);
+
                             $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                         }
-                        catch (PDOException $err)
+                        catch (PDOException $erorMsg)
                         {
-                            echo $err->getMessage();
+                            echo $erorMsg->getMessage();
                         }
 
                         function getSingleValue($tableName, $prop, $value, $columnName, $connection)
 							{
-							  $q = $connection->query("SELECT `$columnName` FROM `$tableName` WHERE $prop='".$value."'");
-							  $f = $q->fetch();
+							  $queryRun = $connection->query("SELECT `$columnName` FROM `$tableName` WHERE $prop='".$value."'");
+							  $fetchQury = $queryRun->fetch();
 							  $result = $f[$columnName];
 							  return $result;
 							}
@@ -74,16 +75,16 @@
 						<script>
 						function startTime() {
 						    var today = new Date();
-						    var h = today.getHours();
-						    var m = today.getMinutes();
-						    var s = today.getSeconds();
-						    m = checkTime(m);
-						    s = checkTime(s);
-						    document.getElementById('time').innerHTML =h + ":" + m + ":" + s;
-						    var t = setTimeout(startTime, 500);
+						    var hr = today.getHours();
+						    var mnt = today.getMinutes();
+						    var sec = today.getSeconds();
+						    mnt = checkTime(m);
+						    sec = checkTime(s);
+						    document.getElementById('time').innerHTML =hr + ":" + mmnt + ":" + sec;
+						    var timeOut = setTimeout(startTime, 500);
 						}
 						function checkTime(i) {
-						    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+						    if (i < 10) {i = "0" + i};  
 						    return i;
 						}
 						</script>
@@ -96,28 +97,23 @@
 			            <li><a href="index.php" >Log out</a></li>
                         <h2>My Account Info</h2>
                         <?php
-                        //store the username in a variable for use in SQL commands
-                        //Store the username for the session in a variable for use in SQL commands
+                        
                         $user = htmlspecialchars($_SESSION['username']);
 
-                        //print username and password
+                       
                         echo "Username: $user <br>";
                         echo "Password: ****** <br>";
 
-                        //send SQL queries to the database and print the result
-                        //print the balance
+                       
                         $result = getSingleValue('accounts','username',$user,'Balance',$connection);
                         echo "Balance: $result<br>";
 
-                        //print any reservations
                          $result = getSingleValue('accounts','username',$user,'Reservation',$connection);
                         echo "Reservations: $result<br>";
 
-                        //print license plate of car
                          $result = getSingleValue('accounts','username',$user,'LicensePlate',$connection);
                         echo "License Plate: $result<br>";
-                        //close connection
-                        //$connection->close();
+            
                     ?> <br>
 			</div>				
         </div>
@@ -131,3 +127,6 @@
 			<script src="assets/js/main.js"></script>
 </body>
 </html>
+<?php
+$connection->close();
+?>

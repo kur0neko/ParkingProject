@@ -1,30 +1,38 @@
 <?php
 	session_start();
-	//DB configuration Constants
-	define('_HOST_NAME_', 'localhost');
-	define('_USER_NAME_', 'root');
-	define('_DB_PASSWORD', '');
-	define('_DATABASE_NAME_', 'parkinggarage');
 
-	//PDO Database Connection
+	define('DBHOSTNAME', 'localhost');
+
+	define('DBUSERNAME', 'root');
+
+	define('DBPASSWORD', '');
+
+	define('DBname', 'parkinggarage');
+
+
 	try {
-		$databaseConnection = new PDO('mysql:host='._HOST_NAME_.';dbname='._DATABASE_NAME_, _USER_NAME_, _DB_PASSWORD);
+
+		$databaseConnection = new PDO('mysql:host='.DBHOSTNAME.';dbname='.DBname, DBUSERNAME, DBPASSWORD);
+		
 		$databaseConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	} catch(PDOException $e) {
-		echo 'ERROR: ' . $e->getMessage();
+
+	} catch(PDOException $errorMesg) {
+
+		echo 'ERROR: ' . $errorMesg->getMessage();
 	}
 
 	if(isset($_POST["submit"])){
-		$errMsg = '';
-		//username and password sent from Form1
+		$errorMsg = '';
+
 		$username = trim($_POST['username']);
+		
 		$password = trim($_POST['password']);
 
 		if($username == '')
-			$errMsg .= 'You must enter your Username<br>';
+			$errorMsg .= 'You must enter your Username<br>';
 
 		if($password == '')
-			$errMsg .= 'You must enter your Password<br>';
+			$errorMsg .= 'You must enter your Password<br>';
 
 
 		if($errMsg == ''){
@@ -33,7 +41,9 @@
 			$records->bindParam(':password', $password);
 			$records->execute();
 			$results = $records->fetch(PDO::FETCH_ASSOC);
+
 			echo count($results);
+
 			if(count($results) == 1){
 
 				header("Location: loginError.php");
@@ -41,11 +51,12 @@
 			}
 			else{
 				$_SESSION['username'] = $results['username'];
-				header("Location: account.php");
+
+				header("Location: Theaccount.php");
 				exit;
 			}
 		}
 
 	}
-	//header("Location: register.php");
+	
 ?>
